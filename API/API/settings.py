@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',#REST
+    'corsheaders', #CORS
+    'RentalEquipment'
 ]
 
 MIDDLEWARE = [
@@ -47,7 +50,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', #CORS
+    'django.middleware.common.CommonMiddleware', #CORS
 ]
+CORS_ORIGIN_ALLOW_ALL = True
+#CORS_ORIGIN_ALLOW_ALL = False
+#CORS_ORIGIN_WHITELIST = (#Allowed host is here)
 
 ROOT_URLCONF = 'API.urls'
 

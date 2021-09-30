@@ -7,6 +7,7 @@ apply virtual environment:
 Install all required module:   
 `pip install django`   
 `pip install djangorestframework`  
+`pip install django-cors-headers`  
 ## Run server with terminal
 `python3 manage.py migrate`  
 `python3 manage.py runserver`  
