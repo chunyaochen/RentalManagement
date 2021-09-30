@@ -6,8 +6,8 @@ from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
-from RentalEquipment.models import Equiptment
-from RentalEquipment.serializers import EquipmentSerializer
+from .models import Equiptment
+from .serializers import EquipmentSerializer
 from rest_framework.decorators import api_view
 
 

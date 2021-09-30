@@ -1,5 +1,5 @@
 from django.conf.urls import url 
-from RentalEquipment import views 
+import views
  
 urlpatterns = [ 
     url(r'^api/Equipment$', views.eqipment_list),

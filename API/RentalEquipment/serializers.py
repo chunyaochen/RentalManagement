@@ -1,5 +1,5 @@
 from rest_framework import serializers 
-from RentalEquipment.models import Equiptment
+from .models import Equiptment
  
  
 class EquipmentSerializer(serializers.ModelSerializer):
