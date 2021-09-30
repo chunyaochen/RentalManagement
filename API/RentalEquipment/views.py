@@ -67,3 +67,4 @@ def eqipment_list_published(request):
     if request.method == 'GET': 
         eqipments_serializer = EquipmentSerializer(eqipments, many=True)
         return JsonResponse(eqipments_serializer.data, safe=False)
+
