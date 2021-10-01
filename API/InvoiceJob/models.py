@@ -1,6 +1,6 @@
 from django.db import models
 import datetime
-
+from RentalEquipment.models import Rental
 
 
 class Job(models.Model):
@@ -9,10 +9,10 @@ class Job(models.Model):
     eventually  a job has many rentals
     """
     #invoice = models.OneToOneField(Invoice , on_delete=models.CASCADE, null=True)
+    name = models.CharField(max_length=200,default="name")
     needed_from = models.DateField()
     needed_to = models.DateField()
-    # rentals = models.OneToMany( )
-
+    rentals = models.ManyToManyField(Rental)
 
 # Create your models here.
 
