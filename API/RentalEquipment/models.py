@@ -27,8 +27,7 @@ class Rental(models.Model):
 
     Equiptment = models.ManyToManyField(Equiptment)
     Vendor = models.ForeignKey(Vendor, on_delete=models.CASCADE, null=True)
-    # Changed receive_time, return_time to just DateField, no default
-    recieve_time = models.DateField()
-    return_time = models.DateField()
+    recieve_time = models.DateTimeField(default=datetime.datetime.now)
+    return_time = models.DateTimeField(default=datetime.datetime.now)
     rental_rate = models.CharField(max_length=200,default="1")
     buy_rent = models.BooleanField(choices = BUY_RENT_CHOICES, default='RENT')
