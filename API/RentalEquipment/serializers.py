@@ -28,9 +28,9 @@ class RentalSerializer(serializers.ModelSerializer):
         model = Rental
         fields = (
             'id',
-            'Equiptment',
-            'Vendor',
-            'recieve_time',
+            'equipment_id',
+            'vendor_id',
+            'receive_time',
             'return_time',
             'rental_rate',
             'buy_rent')
