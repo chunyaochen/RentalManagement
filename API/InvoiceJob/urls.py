@@ -1,5 +1,7 @@
 from rest_framework import routers
-from .views import *
+from .views  import JobCreate, JobDetail,JobUpdate,JobDelete, InvoiceCreate,InvoiceDetail\
+    ,InvoiceUpdate,InvoiceDelete,auth_request,JobViewset,InvoiceViewset, ExampleView
+
 from django.urls import path, include
 
 
@@ -18,4 +20,6 @@ urlpatterns = [
     path('invoice/<int:pk>/', InvoiceDetail.as_view()),
     path('invoice/update/<int:pk>/', InvoiceUpdate.as_view()),
     path('invoice/delete/<int:pk>/', InvoiceDelete.as_view()),
+    #path(r'login', auth_request ),
+    path(r'login', ExampleView.as_view()),
 ]

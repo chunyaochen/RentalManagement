@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 
+import datetime
+import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,14 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=y-u@)1&@z2_iz#_-d$8=kk#0$f=)a$b6o7s_z=qhu5cb5*$oj'
-
+#SECRET_KEY = 'django-insecure-=y-u@)1&@z2_iz#_-d$8=kk#0$f=)a$b6o7s_z=qhu5cb5*$oj'
+SECRET_KEY = 'zjgm(s#qq)dicjcij^xs-s7y+ho%9@r@dgdrrp^!dagh^(o5+$'
+# #os.environ['DJANGO_SESS_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+AUTH_USER_MODEL = 'core.CustomUser'
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,7 +44,9 @@ INSTALLED_APPS = [
     'rest_framework',#REST
     'corsheaders', #CORS
     'RentalEquipment',
-    'InvoiceJob'
+    'InvoiceJob',
+    'core'
+
 ]
 
 MIDDLEWARE = [
@@ -54,10 +60,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', #CORS
     'django.middleware.common.CommonMiddleware', #CORS
 ]
-CORS_ORIGIN_ALLOW_ALL = True
-#CORS_ORIGIN_ALLOW_ALL = False
+#CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
 #CORS_ORIGIN_WHITELIST = (#Allowed host is here)
-
+CORS_ORIGIN_WHITELIST = ('http://localhost:8000', 'http://localhost:4200')
 ROOT_URLCONF = 'API.urls'
 
 TEMPLATES = [
@@ -135,7 +141,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 REST_FRAMEWORK = {
+
     'DEFAULT_AUTHENTICATION_CLASSES':[
-          'rest_framework_simplejwt.authentication.JWTAuthentication',
+            # 'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+         #  'rest_framework.authentication.SessionAuthentication',
+        #'rest_framework.authentication.BasicAuthentication',
     ],
+
+}
+
+
+
+""" 'DEFAULT_PERMISSION_CLASSES': [
+      'rest_framework.permissions.IsAuthenticated',
+  ],  """
+# jwt settings
+JWT_AUTH = {
+    'JWT_ALLOW_REFRESH': True,
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),
 }

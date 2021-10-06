@@ -3,12 +3,15 @@ from django.shortcuts import render
 from django.shortcuts import render
 
 from django.http.response import JsonResponse
+from rest_framework.authentication import BasicAuthentication
 from rest_framework.parsers import JSONParser 
 from rest_framework import status
  
 from RentalEquipment.models import Equiptment,Vendor,Rental
 from RentalEquipment.serializers import EquipmentSerializer,VendorSerializer,RentalSerializer
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, authentication_classes
+from rest_framework import status
+from rest_framework.response import Response
 
 
 @api_view(['GET', 'POST', 'DELETE'])
@@ -106,17 +109,20 @@ def vendor_detail(request, pk):
         vendor.delete() 
         return JsonResponse({'message': 'The vendor was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
 
+#@authentication_classes([ BasicAuthentication])
 @api_view(['GET', 'POST', 'DELETE'])
 def rental_list(request):
     if request.method == 'GET':
+
+
         rentals = Rental.objects.all()
-        
+
         title = request.query_params.get('title', None)
         if title is not None:
             rentals = rentals.filter(title__icontains=title)
         Rental_serializer = RentalSerializer(rentals, many=True)
         return JsonResponse(Rental_serializer.data, safe=False)
- 
+
     elif request.method == 'POST':
         rental_data = JSONParser().parse(request)
         rental_serializer = RentalSerializer(data=rental_data)
