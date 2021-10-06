@@ -60,10 +60,10 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', #CORS
     'django.middleware.common.CommonMiddleware', #CORS
 ]
-#CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
+#CORS_ORIGIN_ALLOW_ALL = False
 #CORS_ORIGIN_WHITELIST = (#Allowed host is here)
-CORS_ORIGIN_WHITELIST = ('http://localhost:8000', 'http://localhost:4200')
+
 ROOT_URLCONF = 'API.urls'
 
 TEMPLATES = [
@@ -151,12 +151,3 @@ REST_FRAMEWORK = {
 }
 
 
-
-""" 'DEFAULT_PERMISSION_CLASSES': [
-      'rest_framework.permissions.IsAuthenticated',
-  ],  """
-# jwt settings
-JWT_AUTH = {
-    'JWT_ALLOW_REFRESH': True,
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3600),
-}
