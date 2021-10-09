@@ -8,6 +8,9 @@ Install all required module:
 `pip install django`   
 `pip install djangorestframework`  
 `pip install django-cors-headers`  
+`pip install drf-jwt`  
+`pip install djangorestframework_simplejwt`  
+
 ## Run server with terminal
 `python3 manage.py migrate`  
 `python3 manage.py runserver`  
@@ -64,7 +67,7 @@ Json format:
 "sales_person" : "sales_person",
 "address":"address",
 "email":"email@gmail.com"
-} 
+}
 #### Delete all vendors:  
 DELETE:`localhost:8000/api/Vendor`  
 #### Get vendors per id:  
@@ -72,4 +75,4 @@ GET:`localhost:8000/api/Vendor/id`
 #### Update data in vendors per id  
 PUT:`localhost:8000/api/Vendor/id`  
 #### Delete vendors per id:  
-DELETE:`localhost:8000/api/Vendor/id` 
+DELETE:`localhost:8000/api/Vendor/id`

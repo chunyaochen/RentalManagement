@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include 
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 
 urlpatterns = [
@@ -26,5 +27,6 @@ urlpatterns = [
     # obtain a token pai
     path(r'api-token-auth/', obtain_jwt_token),
     path(r'api-token-refresh/', refresh_jwt_token),
-
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'), # new
+    path('api/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
