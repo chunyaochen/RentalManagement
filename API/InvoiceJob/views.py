@@ -13,7 +13,7 @@ from core.models import CustomUser
 
 
 class ExampleView(APIView):
-    authentication_classes = [BasicAuthentication]
+    #authentication_classes = [BasicAuthentication]
     #permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
@@ -28,7 +28,7 @@ class ExampleView(APIView):
                 'user': 'Anonymous',  # `django.contrib.auth.User` instance.
                 'auth': 'None'
             }
-        return Response(content)
+        return Response(content,status.HTTP_200_OK)
 
 
 
