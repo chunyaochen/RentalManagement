@@ -76,3 +76,11 @@ GET:`localhost:8000/api/Vendor/id`
 PUT:`localhost:8000/api/Vendor/id`  
 #### Delete vendors per id:  
 DELETE:`localhost:8000/api/Vendor/id`
+## JWT Feature:  
+### Get access token  
+POST:`localhost:8000/api/token/`  
+Json format:  
+{  
+    "username": "user",  
+    "password": "admin"  
+}  
