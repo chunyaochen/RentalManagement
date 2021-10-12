@@ -41,14 +41,14 @@ GET:`localhost:8000/api/Rental`
 #### Add to rental records:  
 POST:`localhost:8000/api/Rental`  
 Json format:  
-{
-"Equiptment" : ["Equiptment"],
-"Vendor" : "Vendor",
-"recieve_time":"2021-10-01 13:00",
-"return_time":"2021-10-01 13:00",
-"rental_rate":"rental_rate",
-"buy_rent": "True/False"
-}
+{  
+"Equiptment" : ["Equiptment"],  
+"Vendor" : "Vendor",  
+"recieve_time":"2021-10-01 13:00",  
+"return_time":"2021-10-01 13:00",  
+"rental_rate":"rental_rate",  
+"buy_rent": "True/False"  
+}  
 #### Delete all rental records:  
 DELETE:`localhost:8000/api/Rental`  
 #### Get rental records per id:  
@@ -63,11 +63,11 @@ GET:`localhost:8000/api/Vendor`
 #### Add to vendors:  
 POST:`localhost:8000/api/Vendor`  
 Json format:  
-{
-"sales_person" : "sales_person",
-"address":"address",
-"email":"email@gmail.com"
-}
+{  
+"sales_person" : "sales_person",  
+"address":"address",  
+"email":"email@gmail.com"  
+}  
 #### Delete all vendors:  
 DELETE:`localhost:8000/api/Vendor`  
 #### Get vendors per id:  
