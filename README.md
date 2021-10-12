@@ -81,6 +81,6 @@ DELETE:`localhost:8000/api/Vendor/id`
 POST:`localhost:8000/api/token/`  
 Json format:  
 {  
-    "username": "user",  
-    "password": "admin"  
+    "username": "user name",  
+    "password": "password"  
 }  
